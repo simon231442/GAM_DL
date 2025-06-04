@@ -29,6 +29,12 @@ GAM_Image	*GAM_DL_TextureLoad(GAM_Window *window, const char *filepath)
 	gam_image->texture = SDL_CreateTextureFromSurface(window->renderer, surface);
 	gam_image->width = surface->w;
 	gam_image->height = surface->h;
+
+	gam_image->shape.x = 0.0f;
+    gam_image->shape.y = 0.0f;
+    gam_image->shape.w = (float)surface->w;
+    gam_image->shape.h = (float)surface->h;
+
 	SDL_DestroySurface(surface);
 	
 	return(gam_imag);

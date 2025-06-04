@@ -30,7 +30,12 @@ int	GAM_DL_Main(void)
 	{
 		while (SDL_PollEvent(&event))
 			if (GAM_DL_EventHandel(&event))
-				return (1);
+				break;
 		SDL_SetRenderDrawColor(gam_window->renderer, 0, 0, 0, 255);
 		SDL_RenderClear(gam_window->renderer);
+
+		SDL_RenderTexture(gam_window->render, gam_image->texture, NULL, &gam_image->shape);
+		SDL_Delay(16);
+	}
+	return (0)
 }
