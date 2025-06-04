@@ -38,6 +38,10 @@ int	GAM_DL_Main(void)
 		SDL_RenderPresent(gam_window->renderer);
 		SDL_Delay(16);
 	}
-	SDL_Quit();
+	SDL_DestroyTexture(gam_image->texture);
+	free(gam_image);
+	SDL_DestroyRenderer(gam_window->renderer);
+	SDL_DestroyWindow(gam_window->window);
+	free(gam_window);
 	return (0);
 }

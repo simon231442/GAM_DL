@@ -20,16 +20,21 @@
 # include <SDL3/SDL.h>
 # include <stdlib.h>
 
-# include "GAM_DL_Texture.h"
-# include "GAM_DL_Event.h"
-
 #define GAM_DL_DEFAULT_WIDTH 800
 #define GAM_DL_DEFAULT_HEIGHT 600
+
+typedef struct s_GAM_Window t_GAM_Window;
+typedef struct s_GAM_Image t_GAM_Image;
 
 typedef struct s_GAM_Window
 {
 	SDL_Window		*window;
-	SDL_Renderer	*rederer;
+	SDL_Renderer	*renderer;
 }	t_GAM_Window;
+
+t_GAM_Window	*GAM_DL_CoreWindowPop(int width, int height);
+
+# include "GAM_DL_Texture.h"
+# include "GAM_DL_Event.h"
 
 #endif
