@@ -20,7 +20,8 @@
 # include <SDL3/SDL.h>
 # include <stdlib.h>
 
-# include	"GAM_DL_texture.h"
+# include "GAM_DL_texture.h"
+# include "GAM_DL_Event.h"
 
 #define GAM_DL_DEFAULT_WIDTH 800
 #define GAM_DL_DEFAULT_HEIGHT 600

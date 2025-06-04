@@ -29,7 +29,7 @@ typedef	struct s_GAM_Image
 	SDL_Texture	*texture;
 	int			with;
 	int			height;
-	const char	*filepath;
+	SDL_Frect	shape;
 }	t_GAM_Image;
 
 GAM_Image	*GAM_TextureLoad(GAM_Window *window, const char *filepath);
