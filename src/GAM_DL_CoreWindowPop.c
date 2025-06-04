@@ -18,11 +18,11 @@
 #include "GAM_DL.h"
 
 
-GAM_Window *GAM_DL_CoreWindowPop(int width, int height)
+t_GAM_Window *GAM_DL_CoreWindowPop(int width, int height)
 {
-	GAM_Window	*gam_window;
+	t_GAM_Window	*gam_window;
 
-	gam_window = malloc(sizeof(GAM_Window));
+	gam_window = malloc(sizeof(t_GAM_Window));
 	if (!gam_window)
 		return (NULL);
 

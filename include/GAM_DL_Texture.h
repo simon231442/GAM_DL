@@ -28,7 +28,7 @@ typedef	struct s_GAM_Image
 	SDL_FRect	shape;
 }	t_GAM_Image;
 
-GAM_Image	*GAM_DL_TextureLoad(GAM_Window *window, const char *filepath);
+t_GAM_Image	*GAM_DL_TextureLoad(t_GAM_Window *window, const char *filepath);
 
 #endif
 	

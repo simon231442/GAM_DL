@@ -17,12 +17,12 @@
 
 #include "GAM_DL.h"
 
-GAM_Image	*GAM_DL_TextureLoad(GAM_Window *window, const char *filepath)
+t_GAM_Image	*GAM_DL_TextureLoad(t_GAM_Window *window, const char *filepath)
 {
-	GAM_Image	*gam_image;
+	t_GAM_Image	*gam_image;
 	SDL_Surface	*surface;
 
-	gam_image = malloc(sizeof(GAM_Image));
+	gam_image = malloc(sizeof(t_GAM_Image));
 	if (!gam_image)
 		return (NULL);	
 

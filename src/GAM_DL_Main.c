@@ -19,8 +19,8 @@
 
 int	GAM_DL_Main(void)
 {
-	GAM_Window	*gam_window;
-	GAM_Image	*gam_image;
+	t_GAM_Window	*gam_window;
+	t_GAM_Image		*gam_image;
 	SDL_Event	event;
 
 	gam_window = GAM_DL_CoreWindowPop(GAM_DL_DEFAULT_WIDTH, GAM_DL_DEFAULT_HEIGHT);

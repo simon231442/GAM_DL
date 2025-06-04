@@ -32,6 +32,7 @@ typedef struct s_GAM_Window
 	SDL_Renderer	*renderer;
 }	t_GAM_Window;
 
+int				GAM_DL_Main(void);
 t_GAM_Window	*GAM_DL_CoreWindowPop(int width, int height);
 
 # include "GAM_DL_Texture.h"
