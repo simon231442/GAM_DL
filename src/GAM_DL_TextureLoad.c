@@ -24,7 +24,7 @@ GAM_Image	*GAM_DL_TextureLoad(GAM_Window *window, const char *filepath)
 
 	gam_image = malloc(sizeof(GAM_Image));
 
-	surface = SDL_LoadBMP(filePath);
+	surface = SDL_LoadBMP(filepath);
 	
 	gam_image->texture = SDL_CreateTextureFromSurface(window->renderer, surface);
 	gam_image->width = surface->w;
@@ -37,5 +37,5 @@ GAM_Image	*GAM_DL_TextureLoad(GAM_Window *window, const char *filepath)
 
 	SDL_DestroySurface(surface);
 	
-	return(gam_imag);
+	return(gam_image);
 }

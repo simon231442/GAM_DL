@@ -16,23 +16,23 @@
  */
 
 #ifndef GAM_DL_TEXTURE_H
-# define GAM_DL_TEXTUR_H
+# define GAM_DL_TEXTURE_H
 
-# include "GAM_DL_H"
+# include "GAM_DL.h"
 
 # define PATH_SPRITE_TEST "sprite/colored_spiral.bmp" 
 
-typedef struct s_GAM_Window	t_Gam_Window;
+typedef struct s_GAM_Window	t_GAM_Window;
 
 typedef	struct s_GAM_Image
 {
 	SDL_Texture	*texture;
-	int			with;
+	int			width;
 	int			height;
-	SDL_Frect	shape;
+	SDL_FRect	shape;
 }	t_GAM_Image;
 
-GAM_Image	*GAM_TextureLoad(GAM_Window *window, const char *filepath);
+GAM_Image	*GAM_DL_TextureLoad(GAM_Window *window, const char *filepath);
 
 #endif
 	

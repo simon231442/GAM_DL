@@ -25,9 +25,9 @@ GAM_Window *GAM_DL_CoreWindowPop(int width, int height)
 	gam_window = malloc(sizeof(GAM_Window));
 
 	gam_window->window = SDL_CreateWindow("GAM_DL Window",
-											width, heght,
+											width, height,
 											SDL_WINDOW_OPENGL);
 	gam_window->renderer = SDL_CreateRenderer(gam_window->window,
 												"opengl");
-	return (Gam_window);
+	return (gam_window);
 }
