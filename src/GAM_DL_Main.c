@@ -22,15 +22,16 @@ int	GAM_DL_Main(void)
 	t_GAM_Window	*gam_window;
 	t_GAM_Image		*gam_image;
 	SDL_Event	event;
+	int				quit = 0;
 
 	gam_window = GAM_DL_CoreWindowPop(GAM_DL_DEFAULT_WIDTH, GAM_DL_DEFAULT_HEIGHT);
 	gam_image = GAM_DL_TextureLoad(gam_window, PATH_SPRITE_TEST);
 
-	while (1)
+	while (!quit)
 	{
 		while (SDL_PollEvent(&event))
 			if (GAM_DL_EventHandle(&event))
-				break;
+				quit = 1;
 		SDL_SetRenderDrawColor(gam_window->renderer, 0, 0, 0, 255);
 		SDL_RenderClear(gam_window->renderer);
 
