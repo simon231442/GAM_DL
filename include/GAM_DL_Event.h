@@ -18,6 +18,6 @@
 #ifndef GAM_DL_EVENT_H
 # define GAM_DL_EVENT_H
 
-int	GAM_DL_EventHandle(SDL_Event *event);
+int	GAM_DL_EventHandle(SDL_Event *event, t_GAM_Window *window);
 
 #endif
