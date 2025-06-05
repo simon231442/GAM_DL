@@ -17,6 +17,28 @@
 
 #include "GAM_DL.h"
 
+SDL_Texture	*GAM_DL_TextureLoad(t_GAM_Window *window, const char *filepath)
+{
+	SDL_Surface	*surface;
+	SDL_Texture	*texture;
+
+	surface = SDL_LoadBMP(filepath);
+	if (!surface)
+		return (NULL);
+
+	texture = SDL_CreateTextureFromSurface(window->renderer, surface);
+	if (!texture)
+	{
+		SDL_FreeSurface(surface);
+		return (NULL);
+	}
+
+	SDL_FreeSurface(surface);
+	return (texture);
+}
+
+
+/*
 t_GAM_Image	*GAM_DL_TextureLoad(t_GAM_Window *window, const char *filepath)
 {
 	t_GAM_Image	*gam_image;
@@ -46,3 +68,4 @@ t_GAM_Image	*GAM_DL_TextureLoad(t_GAM_Window *window, const char *filepath)
 	
 	return(gam_image);
 }
+*/

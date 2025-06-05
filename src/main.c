@@ -24,7 +24,7 @@ int main(int argc, char* argv[])
 	
 	SDL_Init(SDL_INIT_VIDEO);
 	
-	int result = GAM_DL_Main();
+	int result = GAM_DL_MainComplet();
 	
 	SDL_Quit();
 	return result;
