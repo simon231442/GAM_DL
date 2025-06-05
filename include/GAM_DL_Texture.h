@@ -54,7 +54,7 @@ typedef struct s_GAM_ImageAnimated
 	SDL_FRect	shape;
 } 	t_GAM_ImageAnimated;
 
-typedef	struct s_GAM_caracter
+typedef	struct s_GAM_Caracter
 {
 	SDL_Texture	***texture;
 	int			width;
@@ -67,7 +67,7 @@ typedef enum e_caracter_state
 {
 	WALK_LEFT,
 	WALK_RIGHT,
-};
+}	t_caracter_state;
 
 
 SDL_Texture	*GAM_DL_TextureLoad(t_GAM_Window *window, const char *filepath);

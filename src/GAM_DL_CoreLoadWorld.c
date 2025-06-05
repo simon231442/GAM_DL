@@ -21,7 +21,7 @@ void GAM_DL_CoreLoadWorld(t_GAM_Window *gam_window)
 {
     gam_window->ground = malloc(sizeof(t_GAM_ImageSimple));
     gam_window->background_animated = malloc(sizeof(t_GAM_ImageAnimated));
-    gam_window->caracter = malloc(sizeof(t_GAM_caracter));
+    gam_window->caracter = malloc(sizeof(t_GAM_Caracter));
     
     gam_window->ground->texture = GAM_DL_TextureLoad(gam_window, PATH_IMAGE_SIMPLE_GROUND);
     gam_window->ground->shape.x = 0;

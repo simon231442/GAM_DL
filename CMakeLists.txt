@@ -6,10 +6,11 @@ set(CMAKE_C_STANDARD 99)
 # Fichiers sources
 set(SOURCES
     src/main.c
-    src/GAM_DL_Main.c
+    src/GAM_DL_MainComplet.c
     src/GAM_DL_CoreWindowPop.c
     src/GAM_DL_TextureLoad.c
     src/GAM_DL_EventHandle.c
+    src/GAM_DL_CoreLoadWorld.c
 )
 
 # Dossier des headers

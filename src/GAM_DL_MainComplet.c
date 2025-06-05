@@ -31,7 +31,7 @@ int	GAM_DL_MainComplet(void)
 	while (!quit)
 	{
 		while (SDL_PollEvent(&event))
-			if (GAM_DL_EventHandle(&event))
+			if (GAM_DL_EventHandle(&event, gam_window))
 				quit = 1;
 
 		SDL_SetRenderDrawColor(gam_window->renderer, 0, 0, 0, 255);

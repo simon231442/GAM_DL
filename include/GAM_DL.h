@@ -29,7 +29,7 @@
 typedef struct s_GAM_Window t_GAM_Window;
 typedef	struct s_GAM_ImageSimple t_GAM_ImageSimple;
 typedef struct s_GAM_ImageAnimated t_GAM_ImageAnimated;
-typedef struct s_GAM_caracter t_GAM_caracter;
+typedef struct s_GAM_Caracter t_GAM_Caracter;
 
 typedef struct s_GAM_Window
 {
@@ -37,7 +37,7 @@ typedef struct s_GAM_Window
 	SDL_Renderer			*renderer;
 	t_GAM_ImageSimple		*ground;
 	t_GAM_ImageAnimated		*background_animated;
-	t_GAM_caracter			*caracter;
+	t_GAM_Caracter			*caracter;
 }	t_GAM_Window;
 
 //int				GAM_DL_Main(void);
