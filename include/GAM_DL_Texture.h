@@ -20,7 +20,7 @@
 
 # define PATH_SPRITE_TEST "sprite/colored_spiral.bmp" 
 
-# define PATH_IMAGE_SIMPLE_GROUND "PATH_IMAGE_SIMPLE_GROUND.bmp"
+# define PATH_IMAGE_SIMPLE_GROUND "sprite/PATH_IMAGE_SIMPLE_GROUND.bmp"
 # define OFFSET_IMAGE_SIMPLE_GROUND_y HEIGHT*2/3
 
 # define PATH_IMAGE_ANIMATED0 "sprite/PATH_IMAGE_ANIMATED0.bmp"
@@ -51,6 +51,7 @@ typedef struct s_GAM_ImageAnimated
 	SDL_Texture	**texture;
 	int			width;
 	int			height;
+	int			frames; // Number of frames in the animation
 	SDL_FRect	shape;
 } 	t_GAM_ImageAnimated;
 
@@ -61,6 +62,7 @@ typedef	struct s_GAM_Caracter
 	int			height;
 	SDL_FRect	shape;
 	int			caracter_state;
+	int			frames; // Number of frames in the animation for each state
 }	t_GAM_Caracter;
 
 typedef enum e_caracter_state

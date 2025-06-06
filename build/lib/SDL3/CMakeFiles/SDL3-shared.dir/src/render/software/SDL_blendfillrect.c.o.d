@@ -1,8 +1,0 @@
-lib/SDL3/CMakeFiles/SDL3-shared.dir/src/render/software/SDL_blendfillrect.c.o: \
- /home/srenaud/Documents/restart_GAM_DL/lib/SDL3/src/render/software/SDL_blendfillrect.c \
- /usr/include/stdc-predef.h \
- /home/srenaud/Documents/restart_GAM_DL/lib/SDL3/src/SDL_internal.h \
- /home/srenaud/Documents/restart_GAM_DL/lib/SDL3/src/render/software/SDL_draw.h \
- /home/srenaud/Documents/restart_GAM_DL/lib/SDL3/src/render/software/../../video/SDL_surface_c.h \
- /home/srenaud/Documents/restart_GAM_DL/lib/SDL3/src/render/software/../../video/SDL_blit.h \
- /home/srenaud/Documents/restart_GAM_DL/lib/SDL3/src/render/software/SDL_blendfillrect.h

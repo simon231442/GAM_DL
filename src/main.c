@@ -23,6 +23,11 @@ int main(int argc, char* argv[])
 	(void)argv;
 	
 	SDL_Init(SDL_INIT_VIDEO);
+
+	while (1)
+	{
+		GAM_DL_
+	}
 	
 	int result = GAM_DL_MainComplet();
 	

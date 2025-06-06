@@ -37,21 +37,24 @@ int	GAM_DL_MainComplet(void)
 		SDL_SetRenderDrawColor(gam_window->renderer, 0, 0, 0, 255);
 		SDL_RenderClear(gam_window->renderer);
 
+		
 		size.w = 2 * WIDTH;
 		size.h = HEIGHT;
 
-		SDL_RenderTexture(gam_window->renderer, gam_window->background_animated->texture[i % 3] , &size, &gam_window->ground->shape);
-		size.w = WIDTH/6;
+		SDL_RenderTexture(gam_window->renderer, gam_window->background_animated->texture[i % 3] , NULL, NULL/*&gam_window->ground->shape*/);
+	/*	size.w = WIDTH/6;
 		size.h = HEIGHT/6;
 		SDL_RenderTexture(gam_window->renderer, gam_window->caracter->texture[gam_window->caracter->caracter_state][i % 3], &size, &gam_window->caracter->shape);
-
+*/
 		size.w = 2 * WIDTH;
 		size.h = HEIGHT;
 		
-		SDL_RenderTexture(gam_window->renderer, gam_window->ground->texture, &size, &gam_window->ground->shape);
+		SDL_RenderTexture(gam_window->renderer, gam_window->ground->texture,NULL, /*&size, */&gam_window->ground->shape);
 
 		SDL_RenderPresent(gam_window->renderer);
-		SDL_Delay(16);
+		SDL_Delay(160);
+		if (i >1000)
+			i = 0;
 		i++;
 	}
 	SDL_DestroyRenderer(gam_window->renderer);

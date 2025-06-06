@@ -19,6 +19,7 @@
 # define GAM_DL_H
 # include <SDL3/SDL.h>
 # include <stdlib.h>
+# include <stdio.h>
 
 # define GAM_DL_DEFAULT_WIDTH 800
 # define GAM_DL_DEFAULT_HEIGHT 600

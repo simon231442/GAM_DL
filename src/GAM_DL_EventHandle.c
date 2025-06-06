@@ -25,15 +25,15 @@ int	GAM_DL_EventHandle(SDL_Event *event, t_GAM_Window *window)
 		return (1);
 	if (event->type == SDL_EVENT_KEY_DOWN && event->key.key == SDLK_RIGHT)
 	{
-		window->background_animated->shape.x -= 3;
+		//window->background_animated->shape.x -= 3;
 		window->ground->shape.x -= 10;
-		window->caracter->caracter_state = WALK_RIGHT;
+		//window->caracter->caracter_state = WALK_RIGHT;
 	}
 	if (event->type == SDL_EVENT_KEY_DOWN && event->key.key == SDLK_LEFT)
 	{
-		window->background_animated->shape.x += 3;
+		//window->background_animated->shape.x += 3;
 		window->ground->shape.x += 10;
-		window->caracter->caracter_state = WALK_LEFT;
+		//window->caracter->caracter_state = WALK_LEFT;
 	}
 	return (0);
 }

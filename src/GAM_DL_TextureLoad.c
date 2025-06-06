@@ -29,10 +29,10 @@ SDL_Texture	*GAM_DL_TextureLoad(t_GAM_Window *window, const char *filepath)
 	texture = SDL_CreateTextureFromSurface(window->renderer, surface);
 	if (!texture)
 	{
-		SDL_FreeSurface(surface);
+		SDL_DestroySurface(surface);
 		return (NULL);
 	}
 
-	SDL_FreeSurface(surface);
+	SDL_DestroySurface(surface);
 	return (texture);
 }
