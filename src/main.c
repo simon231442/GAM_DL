@@ -27,6 +27,8 @@ void	set_global(void)
     g_gam_window->function[1] = GAM_DL_Game;
     g_gam_window->function[2] = GAM_DL_Pause;
 	g_gam_window->quit = 0;
+
+	GAM_DL_CoreLoadWorld();
 }
 #ifdef __ENSCRIPTON__
 

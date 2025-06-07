@@ -30,20 +30,26 @@
 # define PATH_MAP_SQUARE_4 "sprite/MapSquare_4.png"
 # define PATH_MAP_SQUARE_5 "sprite/MapSquare_5.png"
 
-# define PATH_IMAGE_ANIMATED0 "sprite/PATH_IMAGE_ANIMATED0.bmp"
-# define PATH_IMAGE_ANIMATED1 "sprite/PATH_IMAGE_ANIMATED1.bmp"
-# define PATH_IMAGE_ANIMATED2 "sprite/PATH_IMAGE_ANIMATED2.bmp"
+# define PATH_IMAGE_CARACTER "sprite/Player.png"
 
-# define PATH_IMAGE_CARACTER_WALK_LEFT0 "sprite/PATH_IMAGE_CARACTER_WALK_LEFT0.bmp"
-# define PATH_IMAGE_CARACTER_WALK_LEFT1 "sprite/PATH_IMAGE_CARACTER_WALK_LEFT1.bmp"
-# define PATH_IMAGE_CARACTER_WALK_LEFT2 "sprite/PATH_IMAGE_CARACTER_WALK_LEFT2.bmp"
-# define OFFSET_IMAGE_CARACTER HEIGHT*1/3
+//start game utils
+enum
+{
+	GRAVITE_BAS,
+	GRAVITE_HAUT,
+	GRAVITE_G,
+	GRAVITE_D
+};
 
-# define PATH_IMAGE_CARACTER_WALK_RIGHT0 "sprite/PATH_IMAGE_CARACTER_WALK_RIGHT0.bmp"
-# define PATH_IMAGE_CARACTER_WALK_RIGHT1 "sprite/PATH_IMAGE_CARACTER_WALK_RIGHT1.bmp"
-# define PATH_IMAGE_CARACTER_WALK_RIGHT2 "sprite/PATH_IMAGE_CARACTER_WALK_RIGHT2.bmp"
+typedef struct repeatkey
+{
+	int key_up;
+	int key_down;
+	int key_right;
+	int	key_left;
+}t_rekey;
 
-
+//end game utils
 
 typedef	struct s_GAM_ImageSimple
 {
@@ -64,12 +70,9 @@ typedef struct s_GAM_ImageAnimated
 
 typedef	struct s_GAM_Caracter
 {
-	SDL_Texture	***texture;
-	int			width;
-	int			height;
+	SDL_Texture	*texture;
 	SDL_FRect	shape;
-	int			caracter_state;
-	int			frames; // Number of frames in the animation for each state
+	
 }	t_GAM_Caracter;
 
 typedef enum e_caracter_state

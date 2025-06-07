@@ -19,5 +19,6 @@
 
 void	GAM_DL_Menu(void)
 {
+	game_window->init_game = 1;
 	return ;
 }

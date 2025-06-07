@@ -39,11 +39,12 @@ typedef struct s_GAM_Window
 	func_ptr				function[6];
 	SDL_Window				*window;
 	SDL_Renderer			*renderer;
-	t_GAM_ImageSimple		*ground;
-	t_GAM_ImageAnimated		*background_animated;
-	t_GAM_Caracter			*caracter;
+	t_GAM_ImageSimple		ground;
+	t_GAM_ImageAnimated		room;
+	t_GAM_Caracter			caracter;
 	int						game_state;
 	int						quit;
+	int						init_game;
 	SDL_Event				event;
 }	t_GAM_Window;
 
@@ -60,6 +61,7 @@ void			GAM_DL_Game(void);
 void			GAM_DL_Menu(void);
 void			GAM_DL_Pause(void);
 t_GAM_Window	*GAM_DL_CoreWindowPop(int width, int height);
+void			ActivationGravite(void);
 
 // Global window variable for cross-platform compatibility
 extern t_GAM_Window *global_window;

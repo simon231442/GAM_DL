@@ -19,6 +19,11 @@
 
 void	GAM_DL_Game(void)
 {
-		
+	ActivationGravite();
+
+	SDL_RenderClear(gam_window->renderer);
+	SDL_RenderTexture(gam_window->renderer, gam_window->room->texture[0], NULL, &gam_window->room->shape);
+	SDL_RenderTexture(gam_window->renderer, gam_window->caracter->texture, NULL, &gam_window->caracter->shape);
+	SDL_RenderPresent(gam_window->renderer);
 	return ;
 }
