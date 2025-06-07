@@ -1,9 +1,4 @@
-/*                                           //int				GAM_DL_Main(void);
-int				GAM_DL_MainComplet(void);
-t_GAM_Window	*GAM_DL_CoreWindowPop(int width, int height);
-
-// Global window variable for cross-platform compatibility
-extern t_GAM_Window *global_window;                               *
+/*                                                                             *
  *                 ██████╗  █████╗ ███╗   ███╗     ██████╗ ██╗                 *
  *                ██╔════╝ ██╔══██╗████╗ ████║     ██╔══██╗██║                 *
  *                ██║  ███╗███████║██╔████╔██║     ██║  ██║██║                 *
@@ -23,12 +18,12 @@ extern t_GAM_Window *global_window;                               *
 #ifndef GAM_DL_H
 # define GAM_DL_H
 # include <SDL3/SDL.h>
+# include <SDL_image.h>
 # include <stdlib.h>
 # include <stdio.h>
 
 # define GAM_DL_DEFAULT_WIDTH 800
 # define GAM_DL_DEFAULT_HEIGHT 600
-
 # define WIDTH GAM_DL_DEFAULT_WIDTH
 # define HEIGHT GAM_DL_DEFAULT_HEIGHT
 
@@ -41,7 +36,7 @@ typedef void (*func_ptr)(void);
 
 typedef struct s_GAM_Window
 {
-	func_ptr				function[3];
+	func_ptr				function[6];
 	SDL_Window				*window;
 	SDL_Renderer			*renderer;
 	t_GAM_ImageSimple		*ground;

@@ -23,6 +23,13 @@
 # define PATH_IMAGE_SIMPLE_GROUND "sprite/PATH_IMAGE_SIMPLE_GROUND.bmp"
 # define OFFSET_IMAGE_SIMPLE_GROUND_y HEIGHT*2/3
 
+# define PATH_MAP_SQUARE_0 "sprite/MapSquare_0.png"
+# define PATH_MAP_SQUARE_1 "sprite/MapSquare_1.png"
+# define PATH_MAP_SQUARE_2 "sprite/MapSquare_2.png"
+# define PATH_MAP_SQUARE_3 "sprite/MapSquare_3.png"
+# define PATH_MAP_SQUARE_4 "sprite/MapSquare_4.png"
+# define PATH_MAP_SQUARE_5 "sprite/MapSquare_5.png"
+
 # define PATH_IMAGE_ANIMATED0 "sprite/PATH_IMAGE_ANIMATED0.bmp"
 # define PATH_IMAGE_ANIMATED1 "sprite/PATH_IMAGE_ANIMATED1.bmp"
 # define PATH_IMAGE_ANIMATED2 "sprite/PATH_IMAGE_ANIMATED2.bmp"
@@ -48,7 +55,7 @@ typedef	struct s_GAM_ImageSimple
 
 typedef struct s_GAM_ImageAnimated
 {
-	SDL_Texture	**texture;
+	SDL_Texture	*texture[5];
 	int			width;
 	int			height;
 	int			frames; // Number of frames in the animation
