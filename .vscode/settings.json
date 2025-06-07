@@ -1,0 +1,6 @@
+{
+    "files.associations": {
+        "gam_dl.h": "c",
+        "gam_dl_texture.h": "c"
+    }
+}

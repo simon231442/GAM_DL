@@ -16,48 +16,122 @@
  */
 
 #include "GAM_DL.h"
+#ifdef BUILD_WASM
+#include <emscripten.h>
+#endif
 
-int	GAM_DL_MainComplet(void)
+// Global variables for cross-platform compatibility
+t_GAM_Window *global_window = NULL;
+static int frame_counter = 0;
+
+void main_loop_iteration(void)
 {
-	t_GAM_Window		*gam_window;
-	int 				quit = 0;
-	SDL_Event			event;
-	SDL_FRect			size;
-	int					i = 0;
-
-	gam_window = GAM_DL_CoreWindowPop(GAM_DL_DEFAULT_WIDTH, GAM_DL_DEFAULT_HEIGHT);
-	GAM_DL_CoreLoadWorld(gam_window);
-
-	while (!quit)
+	SDL_FRect size;
+	SDL_Event event;
+	
+	// Event handling
+	while (SDL_PollEvent(&event))
 	{
-		while (SDL_PollEvent(&event))
-			if (GAM_DL_EventHandle(&event, gam_window))
-				quit = 1;
-
-		SDL_SetRenderDrawColor(gam_window->renderer, 0, 0, 0, 255);
-		SDL_RenderClear(gam_window->renderer);
-
-		
-		size.w = 2 * WIDTH;
-		size.h = HEIGHT;
-
-		SDL_RenderTexture(gam_window->renderer, gam_window->background_animated->texture[i % 3] , NULL, NULL/*&gam_window->ground->shape*/);
-	/*	size.w = WIDTH/6;
-		size.h = HEIGHT/6;
-		SDL_RenderTexture(gam_window->renderer, gam_window->caracter->texture[gam_window->caracter->caracter_state][i % 3], &size, &gam_window->caracter->shape);
-*/
-		size.w = 2 * WIDTH;
-		size.h = HEIGHT;
-		
-		SDL_RenderTexture(gam_window->renderer, gam_window->ground->texture,NULL, /*&size, */&gam_window->ground->shape);
-
-		SDL_RenderPresent(gam_window->renderer);
-		SDL_Delay(160);
-		if (i >1000)
-			i = 0;
-		i++;
+		if (GAM_DL_EventHandle(&event, global_window))
+		{
+			global_window->quit = 1;
+		}
 	}
-	SDL_DestroyRenderer(gam_window->renderer);
-	SDL_DestroyWindow(gam_window->window);
+	
+	// Check if we should quit
+	if (global_window->quit)
+	{
+#ifdef BUILD_WASM
+		emscripten_cancel_main_loop();
+#endif
+		return;
+	}
+
+	// Clear screen
+	SDL_SetRenderDrawColor(global_window->renderer, 0, 0, 0, 255);
+	SDL_RenderClear(global_window->renderer);
+
+	// Render background animation
+	size.w = 2 * WIDTH;
+	size.h = HEIGHT;
+	
+	if (global_window->background_animated && global_window->background_animated->texture[0])
+	{
+		SDL_RenderTexture(global_window->renderer, 
+						 global_window->background_animated->texture[frame_counter % 3], 
+						 NULL, NULL);
+	}
+	
+	// Render character (commented for now)
+	/*
+	size.w = WIDTH/6;
+	size.h = HEIGHT/6;
+	if (global_window->caracter && global_window->caracter->texture[global_window->caracter->caracter_state][0])
+	{
+		SDL_RenderTexture(global_window->renderer, 
+						 global_window->caracter->texture[global_window->caracter->caracter_state][frame_counter % 3], 
+						 NULL, &global_window->caracter->shape);
+	}
+	*/
+	
+	// Render ground
+	size.w = 2 * WIDTH;
+	size.h = HEIGHT;
+	
+	if (global_window->ground && global_window->ground->texture)
+	{
+		SDL_RenderTexture(global_window->renderer, 
+						 global_window->ground->texture, 
+						 NULL, &global_window->ground->shape);
+	}
+
+	// Present frame
+	SDL_RenderPresent(global_window->renderer);
+	
+	// Update frame counter
+	frame_counter++;
+	if (frame_counter > 1000)
+		frame_counter = 0;
+}
+
+int GAM_DL_MainComplet(void)
+{
+	// Initialize window if not already done
+	if (!global_window)
+	{
+		global_window = GAM_DL_CoreWindowPop(WIDTH, HEIGHT);
+		if (!global_window)
+		{
+			fprintf(stderr, "Failed to create window\n");
+			return -1;
+		}
+		
+		// Load world data (textures, game objects)
+		GAM_DL_CoreLoadWorld(global_window);
+	}
+	
+#ifdef BUILD_WASM
+	// For WebAssembly, use emscripten main loop
+	emscripten_set_main_loop(main_loop_iteration, 60, 1);
+#else
+	// For native builds, use traditional game loop
+	while (!global_window->quit)
+	{
+		main_loop_iteration();
+		SDL_Delay(16); // ~60 FPS
+	}
+	
+	// Cleanup on exit
+	if (global_window->renderer)
+	{
+		SDL_DestroyRenderer(global_window->renderer);
+	}
+	if (global_window->window)
+	{
+		SDL_DestroyWindow(global_window->window);
+	}
+	free(global_window);
+#endif
+	
 	return 0;
 }

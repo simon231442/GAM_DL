@@ -22,7 +22,7 @@ SDL_Texture	*GAM_DL_TextureLoad(t_GAM_Window *window, const char *filepath)
 	SDL_Surface	*surface;
 	SDL_Texture	*texture;
 
-	surface = SDL_LoadBMP(filepath);
+	surface = IMG_Load(filepath);
 	if (!surface)
 		return (NULL);
 
