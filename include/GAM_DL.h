@@ -2,6 +2,7 @@
 #define GAM_DL_H
 #include <SDL3/SDL.h>
 #include <SDL_image.h>
+#include <SDL_mixer.h>
 #include <stdlib.h>
 #include <stdio.h>
 #define GAM_DL_DEFAULT_WIDTH 800
@@ -13,7 +14,7 @@ typedef    struct s_GAM_ImageSimple t_GAM_ImageSimple;
 typedef struct s_GAM_ImageAnimated t_GAM_ImageAnimated;
 typedef struct s_GAM_Caracter t_GAM_Caracter;
 
-typedef void (func_ptr)(void);
+typedef void (*func_ptr)(void);
 
 //structures pour boutton
 typedef    struct s_texte
@@ -55,11 +56,11 @@ int                GAM_DL_MainComplet(void);
 void            GAM_DL_Game(void);
 void            GAM_DL_Menu(void);
 void            GAM_DL_Pause(void);
-t_GAM_Window    GAM_DL_CoreWindowPop(int width, int height);
+t_GAM_Window    *GAM_DL_CoreWindowPop(int width, int height);
 void            ActivationGravite(void);
 
 // Global window variable for cross-platform compatibility
-extern t_GAM_Windowg_gam_window;
+extern t_GAM_Window g_gam_window;
 
 //MENU FEDOR
 //texture
