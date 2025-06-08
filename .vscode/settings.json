@@ -1,6 +1,7 @@
 {
     "files.associations": {
         "gam_dl.h": "c",
-        "gam_dl_texture.h": "c"
+        "gam_dl_texture.h": "c",
+        "MENU_create_texture_text.c.C": "cpp"
     }
 }
