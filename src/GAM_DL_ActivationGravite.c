@@ -1,3 +1,5 @@
+#include "GAM_DL.h"
+
 int	CollisionBas(SDL_FRect *perso, SDL_FRect *room)
 {
     float persoLeft = perso->x;

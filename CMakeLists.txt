@@ -14,6 +14,9 @@ set(SOURCES
     src/GAM_DL_TextureLoad.c
     src/GAM_DL_EventHandle.c
     src/GAM_DL_CoreLoadWorld.c
+		src/MENU_create_texture_text.c
+		src/MENU_put_all_img_x_y_w_h.c
+		src/MENU_create_button.c
 )
 
 # Headers

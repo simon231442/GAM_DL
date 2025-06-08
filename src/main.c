@@ -18,6 +18,7 @@
 #include "GAM_DL.h"
 
 static t_GAM_Window	*g_gam_window;
+//g_gam_window;
 
 void	set_global(void)
 {
